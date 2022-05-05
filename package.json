@@ -1,6 +1,6 @@
 {
   "name": "@kzmshx/prettier-config",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Prettier rules for me",
   "keywords": [
     "prettier"
