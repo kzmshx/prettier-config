@@ -1,0 +1,25 @@
+name: lint
+
+on: [ pull_request ]
+
+jobs:
+  lint:
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+        os: [ ubuntu-latest ]
+
+    name: Lint with Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
